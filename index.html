@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Convert Midi Number | By Creative Plus</title>
+
+	<meta name="keywords" content="midi,note number,frequency,Tuning,MIDIノートナンバー,音名,周波数,十二平均律">
+    <meta name="description" content="It is a tool to judge the note name and frequency from the MIDI number.Since it can produce sound, it can be used like a tuning fork by setting the frequency of the reference sound.MIDIナンバーから音名と周波数を判定するツールです。音を出すことができるので基準音の周波数を設定することで音叉のように使うこともできます。">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link href="./style.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
+
+    <!-- P5js -->
+    <script type="text/javascript" src="./p5js/p5.js"></script>
+	<script type="text/javascript" src="./p5js/p5.sound.js"></script>
+	<script type="text/javascript" src="./P5-Convert-Midi-Number.js"></script>
+
+	<!-- ファビコン -->
+	<link rel="icon" href="./icon/favicon.ico">
+ 
+	<!-- スマホ用アイコン -->
+	<link rel="apple-touch-icon" sizes="180x180" href="./icon/apple-touch-icon.png">
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115360150-1"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'UA-115360150-1');
+	</script>
+
+  </head>
+  <body>
+
+<div class="container-fluid">
+	<!-- ヘッダー -->
+	<div class="row sticky-top">
+		<div class="col-md-1 page-header">
+		</div>
+		<div class="col-md-10 page-header">
+			<nav class="navbar navbar-expand-sm navbar-dark">
+				<a class="navbar-brand" href="https://creative-plus.net/">Creative Plus</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<a class="nav-link" href="https://blog.creative-plus.net/">Blog Media</span></a>
+						</li>
+						<!--<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Tools
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+								<a class="dropdown-item" href="./index.html">Midi Number Tools</a>
+								<a class="dropdown-item" href="#">New Tools</a>
+							</div>
+						</li>-->
+					</ul>
+				</div>
+			</nav>
+		</div>
+		<div class="col-md-1 page-header">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 top-space">
+			<h1><div style="font-size: 5.5vw">Midi Number Tools</div></h1>
+		</div>
+	</div>
+	<!-- コンテンツ -->
+	<div class="row">
+		<div class="col-md-1"><!-- 全体余白 -->
+		</div>
+		<div class="col-md-10"><!-- メインコンテンツ　ここから -->
+			<div class="row"><!-- コンテンツタイトル -->
+				<div class="col-md-12 contents-title anchor">
+					<h2>MIDIナンバーから音名と周波数を判定します</h2>
+				</div>
+			</div>
+			<div class="row contents-margin">
+				<div class="col-md-5">
+					<h2>
+						How to use
+					</h2>
+					<p>
+						<ol>
+							<li>Set Tuning frequency</li>
+							<li>Set MIDI number</li>
+							<li>Press the Convert button</li>
+						</ol>
+						And, the note name and frequency are displayed.<br>
+						<br>
+						<b>You can hear the sound by moving the volume slider.</b><br>
+						You can also use it like a tuning fork.<br>
+						<br>
+					<div class="jpn-text">
+						<ol>
+							<li>チューニング基準音を設定</li>
+							<li>MIDIナンバーを設定</li>
+							<li>Convertボタンを押す</li>
+						</ol>
+						と、音名と周波数を判定します。<br>
+						<br>
+						<b>ボリュームスライダーを動かすとその音がでます。</b><br>
+						音叉のように使うこともできます。
+					</div>
+					</p>				
+				</div>
+				<div class="col-md-4">
+					<h2>
+						Setting
+					</h2>
+					Tuning frequency：A = <input type="text" id="input_frequency" value="440" size="3" maxlength="3" class="border-0"> Hz<br>
+					<font size="5">MIDI Number：<input type="text" id="input_midinumber" value="69" size="3" maxlength="3" class="border rounded" ></font>
+      				<input type="button" onclick="oscPlay()" value="Convert" class="btn btn-primary">
+					<br>
+    				<br>
+					<p>【ヴォリューム（Volume)】<br>
+					<label>[0.0] <input type="range" name="vol" id="vol" max="1" step="0.01" value="0" onclick="oscPlay()"> [1.0]</label>
+					</p>
+				</div>
+				<div class="col-md-3">
+					<h2>
+						Result
+					</h2>
+					<font size="5">
+						<div id="output_midinumber"></div>
+						<div id="output_note_name"></div>
+						<div id="output_frequency"></div>
+					</font>
+				</div>		
+			</div>
+		</div><!-- メインコンテンツ　ここまで -->
+		<div class="col-md-1"><!-- 全体余白 -->
+		</div>
+	</div>
+	<div class="row"><!-- Footer -->
+		<div class="col-md-12 page-footer">
+			<div align="center" style="font-size:75%">Copyright© Creative Plus , 2020 All Rights Reserved.</div>
+		</div>
+	</div>
+</div>
+
+
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+	
+</body>
+</html>

@@ -1,0 +1,130 @@
+/*Empty CSS file for your own CSS*/
+
+body {
+    background-color: #000000;
+    color: #c4c4c4;
+}
+
+#input_frequency,#input_midinumber{
+	color:#eee;
+	background-color: #000000;
+}
+
+#vol{
+	background-color: #ffffff;
+}
+
+a {
+    color: #2DA4A8;
+}
+
+a:hover{
+    color: #FEAA3A;
+    text-decoration: none;
+}
+
+.page-header{
+    background-color: #4d4d4d99;
+    color: #f0f0f0;
+    font-family: 'Righteous', cursive;
+}
+
+.page-header a{
+    color: #898989;
+}
+
+.contents-title{
+    border-bottom:solid 1px #666666;
+    font-family: 'Righteous', cursive;
+    margin-bottom: 10px;
+}
+
+.page-footer{
+    background-color: #4d4d4d99;
+    color: #cecece;
+    font-family: 'Righteous', cursive;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.contents-margin{
+    margin-bottom: 50px;
+}
+
+.contents-about{
+    font-size: 110%;
+    padding: 3px 20px;
+    margin-bottom: 100px;
+}
+
+/* P5js 背景に設定 (https://qiita.com/ryomeguro/items/02e0f4b40f9cc8d3045e) */
+#defaultCanvas0{
+    position: fixed; /*canvasを固定*/
+    top: 0; /*canvasを上に固定*/
+}
+
+
+/* anchor space (https://y-com.info/contents/?p=5641) */
+.anchor{
+    display: block;
+    padding-top: 70px;
+    margin-top: -70px;
+}
+
+
+/* top-space (https://mae.chab.in/archives/2749) */
+.top-space{
+    width: 100vw;
+    height: 45vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;/* 要素をflexboxに対応させる */
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;/* 縦方向の中央揃え */
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;/* 横方向の中央揃え */
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;/* 子要素の並びを上から下にする（要素の改行に対応） */
+    font-family: 'Righteous', cursive;
+    color: #cecece;
+}
+
+
+.jpn-text {
+    position: relative;
+    border-radius: 10px;
+    padding: 10px 5px 10px 5px;
+    box-sizing: border-box;
+    font-style: italic;
+    font-size: small;
+    color: #acacac;
+    background: #c7c7c71f;    
+}
+
+.youtube{
+    position:relative;
+    width:100%;
+    height:0;
+    padding-top:56.25%;
+    padding-bottom:10%;
+}
+.youtube iframe{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+
+.icon::before {
+	content:'\f778';
+	font-family:'Font Awesome 5 Brands';
+    font-weight: 900;
+    font-size: 120%;
+}
