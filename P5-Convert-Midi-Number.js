@@ -5,6 +5,8 @@ let canvas;
 function canvasSetup(){
   osc = new p5.Oscillator('sine');
   fft = new p5.FFT();
+  osc.start(0, 440);
+  osc.amp(0);
 }
 
 function windowResized() {
@@ -55,22 +57,20 @@ function draw() {
   text(word2, 10, windowHeight*0.45);
   text(word3, 10, windowHeight*0.7);
   text(word4, 10, windowHeight*0.95);
+
+  midiConvert();
   
 }
 
-function oscPlay() {
+function midiConvert() {
   let tuningFQ = document.getElementById("input_frequency").value;
   let midinumber = document.getElementById("input_midinumber").value;
   let note_name = note_name_list[midinumber % 12];
   let freq = tuningFQ * Math.pow(2 , (midinumber - 69) / 12); //周波数 f= 440×2(d-69)/12
   let volume = parseFloat(document.getElementById("vol").value);
 
-  if(volume>0){
-    osc.start(0, freq);
-    osc.amp(volume);
-  }else if(volume==0){
-    osc.stop(0.1);
-  }
+  osc.freq(freq, 0.1);
+  osc.amp(volume,0.1);
 
   midinumber = "MIDI Number：" + midinumber;
   note_name = "Note Name：" + note_name;
@@ -82,4 +82,3 @@ function oscPlay() {
   document.getElementById("output_frequency").innerHTML = outfreq;
 
 }
-
