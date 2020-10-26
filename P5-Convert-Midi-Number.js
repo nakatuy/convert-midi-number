@@ -5,8 +5,8 @@ let canvas;
 function canvasSetup(){
   osc = new p5.Oscillator('sine');
   fft = new p5.FFT();
-  osc.start(0, 440);
-  osc.amp(0);
+  //osc.start(0, 440);
+  //osc.amp(0);
 }
 
 function windowResized() {
@@ -81,4 +81,8 @@ function midiConvert() {
   document.getElementById("output_note_name").innerHTML = note_name;
   document.getElementById("output_frequency").innerHTML = outfreq;
 
+}
+
+function soundPlay() {
+  osc.start(0.1, 440);
 }

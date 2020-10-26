@@ -94,23 +94,23 @@
 						<ol>
 							<li>Set Tuning frequency</li>
 							<li>Set MIDI number</li>
-							<li>Press the Convert button</li>
 						</ol>
 						And, the note name and frequency are displayed.<br>
 						<br>
-						<b>You can hear the sound by moving the volume slider.</b><br>
-						You can also use it like a tuning fork.<br>
+						<b>When you press the "SOUND ON" button, a sound will be produced and a waveform will be drawn.<br>
+							You can adjust the volume and drawing size by moving the volume slider.</b><br>
+							You can also use it like a tuning fork by setting a reference sound.<br>
 						<br>
 					<div class="jpn-text">
 						<ol>
 							<li>チューニング基準音を設定</li>
 							<li>MIDIナンバーを設定</li>
-							<li>Convertボタンを押す</li>
 						</ol>
-						と、音名と周波数を判定します。<br>
+						と、音名と周波数を判定し表示します。<br>
 						<br>
-						<b>ボリュームスライダーを動かすとその音がでます。</b><br>
-						音叉のように使うこともできます。
+						<b>「SOUND ON」ボタンを押すと音がでるようになり波形を描画します。<br>
+							ボリュームスライダーを動かすと音量と描画サイズを調整できます。</b><br>
+							基準音を設定することで音叉のように使うこともできます。
 					</div>
 					</p>				
 				</div>
@@ -125,6 +125,9 @@
     				<br>
 					<p>【ヴォリューム（Volume)】<br>
 					<label>[0.0] <input type="range" name="vol" id="vol" max="1" step="0.01" value="0" > [1.0]</label>
+					</p>
+					<p>
+						<input type="button" onclick="soundPlay()" value="SOUND ON" class="btn btn-primary">
 					</p>
 				</div>
 				<div class="col-md-3">
